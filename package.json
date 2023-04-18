@@ -1,0 +1,18 @@
+{
+  "name": "spring23",
+  "version": "1.0.0",
+  "description": "The first web service we are creating",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Richard Gibbons",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
