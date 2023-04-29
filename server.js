@@ -1,12 +1,30 @@
 var express = require('express');
-var app = express();
+const dotenv = require('dotenv');
+const MongoClient = require('mongodb').MongoClient;
+const users = require('./routes/contacts.js');
+const mongodb = require("./db/connect");
+const bodyParser = require("body-parser");
 
-const port = 3000;
 
-app.get('/', function(req, res) {
-    res.send('Sheena Gibbons');
-});
+dotenv.config();
+const app = express();
+const port = process.env.PORT || 8080;
 
-app.listen(port, function() {
-    console.log(`Listening on port ${port}!`);
+
+
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+  })
+  .use("/", users);
+
+mongodb.initDb((err, mongodb) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
 });
