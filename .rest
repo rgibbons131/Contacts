@@ -12,6 +12,34 @@ http://localhost:8080/user/644c697c44eaa84db0534b12
 ### Richard dad
 http://localhost:8080/user/644c698244eaa84db0534b13
 
+### Post user
+post http://localhost:8080/user
+content-type: application/json
+    
+    {
+        "firstName": "Samuel",
+        "lastName": "Saul",
+        "email": "goobear@email.com",
+        "favoriteColor": "blue",
+        "birthday": "1990-01-01"
+        }
+
+### Put user
+put http://localhost:8080/user/64571e835194acf34b66ae1c
+content-type: application/json
+    
+    {
+        "firstName": "Samuel",
+        "lastName": "Saul",
+        "email": "goobear@email.com",
+        "favoriteColor": "green",
+        "birthday": "1990-01-01"
+        }
+
+### Delete user
+delete http://localhost:8080/user/64571e835194acf34b66ae1c
+        
+
 ### ****Hosted Requests****###
 
 #hosted All users
