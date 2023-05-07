@@ -117,7 +117,7 @@ const deleteUser = async (req, res, next) => {
       .deleteOne({ _id: new ObjectId(req.params.userId) })
       .then((account) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(204).send();
+        res.status(200).send();
       });
   } catch (err) {
     console.log(err);
