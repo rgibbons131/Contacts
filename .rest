@@ -53,3 +53,30 @@ https://contacts-server.onrender.com/user/644c697c44eaa84db0534b12
 
 ###hosted Richard dad
 https://contacts-server.onrender.com/user/644c698244eaa84db0534b13
+
+### Post user
+post https://contacts-server.onrender.com/user
+content-type: application/json
+    
+    {
+        "firstName": "Samuel",
+        "lastName": "Saul",
+        "email": "goobear@email.com",
+        "favoriteColor": "blue",
+        "birthday": "1990-01-01"
+        }
+
+### Put user
+put https://contacts-server.onrender.com/user/6457265024443db00402ca9d
+content-type: application/json
+    
+    {
+        "firstName": "Samuel",
+        "lastName": "Saul",
+        "email": "goobear@email.com",
+        "favoriteColor": "green",
+        "birthday": "1990-01-01"
+        }
+
+### Delete user
+delete https://contacts-server.onrender.com/user/6457265024443db00402ca9d
