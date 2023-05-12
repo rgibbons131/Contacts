@@ -5,7 +5,8 @@ const users = require('./routes/contacts.js');
 const mongodb = require("./db/connect");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 dotenv.config();
 const app = express();
@@ -17,10 +18,11 @@ app
   .use(bodyParser.json())
   .use(cors())
   .use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use("/", users);
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+  .use('/', users);
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
